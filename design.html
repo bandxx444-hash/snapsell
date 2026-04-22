@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLens | E-Waste Value Detector</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: white; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .neon-border { border: 1px solid #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); }
+        .gradient-text { background: linear-gradient(90deg, #34d399, #d9f99d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+
+    <nav class="flex justify-between items-center px-10 py-6">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">👁️</div>
+            <span class="text-2xl font-bold tracking-tight">EcoLens</span>
+        </div>
+        <div class="hidden md:flex gap-8 text-sm text-gray-400">
+            <a href="#" class="hover:text-emerald-400">Home</a>
+            <a href="#" class="hover:text-emerald-400">How It Works</a>
+            <a href="#" class="hover:text-emerald-400">My Dashboard</a>
+        </div>
+        <button class="px-5 py-2 rounded-full border border-emerald-500 text-emerald-400 text-sm font-semibold hover:bg-emerald-500 hover:text-white transition">Start Scan</button>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <section id="step-0" class="text-center py-20">
+            <h1 class="text-6xl font-extrabold mb-6">E-Waste Value Detector.<br><span class="gradient-text">Turn Tech Waste Into Wealth.</span></h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg mb-10">AI analyzes your old devices instantly, determines market value, and creates seamless listings for resale. Combat e-waste, simplify the circular economy.</p>
+            <button onclick="showStep(1)" class="px-8 py-4 bg-emerald-500 rounded-xl font-bold text-lg hover:scale-105 transition shadow-lg shadow-emerald-500/20">Get Started Now</button>
+        </section>
+
+        <section id="step-1" class="hidden">
+            <div class="glass max-w-2xl mx-auto p-12 rounded-3xl text-center border-dashed border-2 border-emerald-500/30">
+                <div class="text-5xl mb-4">📸</div>
+                <h2 class="text-2xl font-bold mb-4">Snap a Photo</h2>
+                <p class="text-gray-400 mb-8">Upload a clear photo of your device (Front & Back)</p>
+                <input type="file" id="fileInput" class="hidden">
+                <label for="fileInput" onclick="showStep(2)" class="cursor-pointer px-8 py-3 bg-white/10 rounded-lg hover:bg-white/20 transition">Choose File</label>
+            </div>
+        </section>
+
+        <section id="step-2" class="hidden">
+            <div class="glass max-w-xl mx-auto p-8 rounded-3xl">
+                <h2 class="text-2xl font-bold mb-6">Device Diagnostics</h2>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">Does the device power on?</label>
+                        <div class="flex gap-4">
+                            <button class="flex-1 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500">Yes</button>
+                            <button class="flex-1 py-2 rounded-lg bg-white/5 border border-white/10">No</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">Screen Condition</label>
+                        <select class="w-full bg-white/5 border border-white/10 p-3 rounded-lg outline-none">
+                            <option>Flawless</option>
+                            <option>Minor Scratches</option>
+                            <option>Cracked</option>
+                        </select>
+                    </div>
+                    <button onclick="showStep(3)" class="w-full py-4 bg-emerald-500 rounded-xl font-bold mt-4">Run AI Analysis</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="step-3" class="hidden text-center py-20">
+            <div class="w-20 h-20 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto mb-8"></div>
+            <h2 class="text-3xl font-bold mb-2">Analyzing Marketplace...</h2>
+            <p class="text-gray-400">Comparing eBay, Etsy, and Best Buy Trade-in values</p>
+            <script>/* Logic to auto-run Step 4 after 3 seconds */</script>
+        </section>
+
+        <section id="step-4" class="hidden">
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="glass p-8 rounded-3xl">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" class="rounded-xl mb-6 grayscale hover:grayscale-0 transition duration-500" />
+                    <h3 class="text-xl font-bold">Detected: iPhone 13 Pro (128GB)</h3>
+                    <p class="text-emerald-400 font-mono mt-2">Condition: Good</p>
+                </div>
+                <div class="glass p-8 rounded-3xl neon-border">
+                    <h2 class="text-sm uppercase tracking-widest text-emerald-500 mb-2">Market Valuation</h2>
+                    <div class="text-5xl font-bold mb-6">$425.00 <span class="text-sm text-gray-500 font-normal">USD</span></div>
+                    <p class="text-gray-400 text-sm mb-6">Price based on current eBay sold listings. You can manually adjust the price before generating the listing.</p>
+                    <input type="range" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 mb-8">
+                    <button onclick="showStep(5)" class="w-full py-4 bg-emerald-500 rounded-xl font-bold">Generate My Listing</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="step-5" class="hidden">
+            <div class="glass max-w-3xl mx-auto p-10 rounded-3xl">
+                <h2 class="text-2xl font-bold mb-6">Your Ready-to-Post Listing</h2>
+                <div class="bg-black/40 p-6 rounded-xl border border-white/10 mb-8 font-mono text-sm leading-relaxed">
+                    <p class="text-emerald-400"># Title:</p>
+                    <p class="mb-4 text-white">Apple iPhone 13 Pro - 128GB - Graphite - Good Condition - Tested</p>
+                    <p class="text-emerald-400"># Description:</p>
+                    <p class="text-gray-300">Professionally scanned by EcoLens AI. Fully functional, minor wear on corners. Included: Original box and charging cable. Eco-friendly shipping guaranteed.</p>
+                </div>
+                <div class="flex gap-4">
+                    <button class="flex-1 py-4 bg-white text-black rounded-xl font-bold hover:bg-gray-200">Copy to Clipboard</button>
+                    <button class="flex-1 py-4 bg-emerald-500/20 border border-emerald-500 text-emerald-400 rounded-xl font-bold">Find Local Recycle Centers</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function showStep(stepNumber) {
+            // Hide all steps
+            for (let i = 0; i <= 5; i++) {
+                document.getElementById('step-' + i).classList.add('hidden');
+            }
+            // Show target step
+            document.getElementById('step-' + stepNumber).classList.remove('hidden');
+
+            // Auto-advance from Step 3 to 4
+            if(stepNumber === 3) {
+                setTimeout(() => showStep(4), 2500);
+            }
+        }
+    </script>
+
+</body>
+</html>

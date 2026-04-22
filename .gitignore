@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.env.local
+*.egg-info/
+dist/
+build/
+.DS_Store
+
+# Node / Vite
+Website-Design/node_modules/
+Website-Design/dist/
+Website-Design/.vite/
+
+# Logs
+*.log
