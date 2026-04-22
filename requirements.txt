@@ -1,0 +1,7 @@
+streamlit
+anthropic
+pillow
+python-dotenv
+streamlit-lottie
+requests
+opencv-python
