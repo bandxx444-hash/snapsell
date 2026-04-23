@@ -110,30 +110,16 @@ const HeroSection = () => {
           className="relative flex justify-center"
         >
           <div className="relative">
-            {/* Decorative rings behind image */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-8 rounded-full border opacity-[0.08]"
-              style={{ borderColor: "hsl(var(--primary))" }}
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-16 rounded-full border border-dashed opacity-[0.05]"
-              style={{ borderColor: "hsl(var(--accent))" }}
-            />
-
             <img
               src={heroDevice}
               alt="AI scanning an item to determine its resale value"
               width={1024}
               height={1024}
-              className="w-full max-w-[420px] animate-float relative z-10"
+              className="w-full max-w-[420px] relative z-10"
             />
-            {/* Glow behind image */}
-            <div className="absolute inset-0 -z-10 blur-3xl opacity-25"
-              style={{ background: "radial-gradient(circle, hsl(var(--primary)), hsl(var(--accent)), transparent)" }}
+            {/* Glow behind image — no blur filter */}
+            <div className="absolute inset-0 -z-10 opacity-20 rounded-full"
+              style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.4), hsl(var(--accent) / 0.3), transparent 70%)" }}
             />
           </div>
         </motion.div>
