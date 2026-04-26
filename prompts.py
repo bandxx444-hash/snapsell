@@ -6,6 +6,9 @@ Item info provided by the user:
 - Brand: {brand}
 - Model/Variant: {model}
 - Year/Age: {year}
+- Category: {category}
+- User-confirmed condition: {condition}
+- AI condition notes: {condition_notes}
 
 Carefully analyze the uploaded photos of the item. Look for:
 - Physical condition (damage, wear, scratches, stains, missing parts)

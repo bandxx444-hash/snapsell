@@ -402,11 +402,20 @@ async def analyze(
     brand = diag.get("brand", "")
     model = diag.get("modelNumber", "")
     year = diag.get("yearOfPurchase", datetime.now().year)
+    category = diag.get("itemCategory", "")
+    condition = diag.get("itemCondition", "")
+    condition_notes = diag.get("conditionNotes", "")
 
     photo_bytes = [await f.read() for f in files]
     blocks = [make_image_block(b) for b in photo_bytes]
     blocks.append({"type": "text", "text": ANALYSIS_PROMPT.format(
-        name=name, brand=brand, model=model, year=year
+        name=name,
+        brand=brand,
+        model=model,
+        year=year,
+        category=category,
+        condition=condition,
+        condition_notes=condition_notes,
     )})
 
     # Build a tight eBay query: brand + device name + year (skip model number — too specific)
