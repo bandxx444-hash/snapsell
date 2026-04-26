@@ -11,9 +11,10 @@ const DiagnosticsPage = () => {
   const navigate = useNavigate();
   const { diagnostics, setDiagnostics } = useScan();
   const [form, setForm] = useState(diagnostics);
+  const visibleFields = ["productName", "brand", "modelNumber", "yearOfPurchase", "itemCategory", "itemCondition"];
 
-  const confident = Object.entries(form.aiConfidence).filter(([, v]) => v);
-  const uncertain = Object.entries(form.aiConfidence).filter(([, v]) => !v);
+  const confident = visibleFields.filter(key => form.aiConfidence[key]);
+  const uncertain = visibleFields.filter(key => form.aiConfidence[key] === false);
   const allConfident = uncertain.length === 0;
 
   const update = (key: string, value: any) => setForm(prev => ({ ...prev, [key]: value }));
