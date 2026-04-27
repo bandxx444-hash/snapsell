@@ -5,3 +5,6 @@ python-dotenv
 streamlit-lottie
 requests
 opencv-python
+fastapi
+uvicorn
+httpx
